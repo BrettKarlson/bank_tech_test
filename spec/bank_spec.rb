@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bank'
 
 RSpec.describe Bank do
