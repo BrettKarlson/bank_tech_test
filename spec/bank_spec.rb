@@ -10,4 +10,9 @@ RSpec.describe Bank do
     subject.deposit(20)
     expect(subject.balance).to eq 20
   end
+  it 'registers a withdrawal' do
+    subject.deposit(100)
+    subject.withdraw(50)
+    expect(subject.balance).to eq 50
+  end
 end
