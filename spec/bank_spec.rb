@@ -15,4 +15,8 @@ RSpec.describe Bank do
     subject.withdraw(50)
     expect(subject.balance).to eq 50
   end
+  it 'raises an error if insufficient funds' do
+    subject.deposit(20)
+    expect { subject.withdraw(30) }.to raise_error "Insufficient funds"
+  end
 end
