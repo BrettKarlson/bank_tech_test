@@ -22,6 +22,7 @@ RSpec.describe Bank do
   it 'saves a transaction to state' do
     subject.deposit(100)
     subject.withdraw(50)
-    expect(subject.statement).to eq [{ deposit: 100 }, { withdrawal: 50 }]
+    time = Time.new.strftime('%d/%m/%Y')
+    expect(subject.statement).to eq [{ time => { deposit: 100 } }, { time => { withdrawal: 50 } }]
   end
 end

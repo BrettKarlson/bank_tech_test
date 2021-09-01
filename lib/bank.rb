@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# This class tracks inputs and outputs
+# This class tracks deposits and withdrawals
 class Bank
   attr_reader :balance, :transactions
 
@@ -11,14 +11,14 @@ class Bank
 
   def deposit(amount)
     @balance += amount
-    @transactions << { deposit: amount }
+    @transactions << { Time.new.strftime('%d/%m/%Y') => { deposit: amount } }
   end
 
   def withdraw(amount)
     raise 'Insufficient funds' if (@balance - amount).negative?
 
     @balance -= amount
-    @transactions << { withdrawal: amount }
+    @transactions << { Time.new.strftime('%d/%m/%Y') => { withdrawal: amount } }
   end
 
   def statement
