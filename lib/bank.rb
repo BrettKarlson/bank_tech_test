@@ -3,41 +3,35 @@ require_relative 'transaction'
 require_relative 'statement'
 # This class tracks deposits and withdrawals
 class Bank
-  attr_reader :balance, :transactions
 
-  def initialize(balance = 0)
-    @balance = balance
-    @transactions = []
+  def initialize(transaction = Transaction.new)
+    @transaction = transaction
+    @balance = transaction.balance
+    @list = @transaction.transactions
   end
 
   def deposit(amount)
-    @balance += amount.to_f
-    @transactions.unshift({ date: Time.new.strftime('%d/%m/%Y'), transaction: :deposit, amount: format('%.2f', amount),
-                            balance: format('%.2f', @balance) })
+    @transaction.credit(amount)
   end
 
   def withdraw(amount)
-    raise 'Insufficient funds' if (@balance - amount).negative?
-
-    @balance -= amount.to_f
-    @transactions.unshift({ date: Time.new.strftime('%d/%m/%Y'), transaction: :withdraw, amount: format('%.2f', amount),
-                            balance: format('%.2f', @balance) })
+    @transaction.debit(amount)
   end
 
   def statement
     puts 'date    || credit || debit || balance'
     i = 0
-    while i < transactions.count
-      puts "#{transactions[i][:date]} || #{credit?(i)} || #{debit?(i)} ||  #{transactions[i][:balance]} "
+    while i < @list.count
+      puts "#{@list[i][:date]} || #{credit?(i)} || #{debit?(i)} ||  #{@list[i][:balance]} "
       i += 1
     end
   end
  
   def credit?(count)
-    transactions[count][:transaction] == :deposit ? transactions[count][:amount] : ''
+    @list[count][:transaction] == :deposit ? @list[count][:amount] : ''
   end
 
   def debit?(count)
-    transactions[count][:transaction] == :withdraw ? transactions[count][:amount] : ''
+    @list[count][:transaction] == :withdraw ? @list[count][:amount] : ''
   end
 end
