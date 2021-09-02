@@ -27,7 +27,6 @@
           1,
           1,
           1,
-          1,
           null,
           null,
           null,
@@ -38,7 +37,8 @@
       "/Users/brettkarlson/Projects/tech_tests/bank_tech_test/lib/bank.rb": {
         "lines": [
           null,
-          null,
+          1,
+          1,
           null,
           1,
           1,
@@ -51,12 +51,15 @@
           1,
           4,
           4,
+          null,
           null,
           null,
           1,
           2,
+          null,
           1,
           1,
+          null,
           null,
           null,
           1,
@@ -77,8 +80,28 @@
           null,
           null
         ]
+      },
+      "/Users/brettkarlson/Projects/tech_tests/bank_tech_test/lib/transaction.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/brettkarlson/Projects/tech_tests/bank_tech_test/lib/statement.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/brettkarlson/Projects/tech_tests/bank_tech_test/spec/statement_spec.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/brettkarlson/Projects/tech_tests/bank_tech_test/spec/transaction_spec.rb": {
+        "lines": [
+
+        ]
       }
     },
-    "timestamp": 1630525191
+    "timestamp": 1630567758
   }
 }
