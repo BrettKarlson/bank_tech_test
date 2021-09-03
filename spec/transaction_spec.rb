@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'transaction'
 
 RSpec.describe Transaction do

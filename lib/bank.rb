@@ -1,9 +1,9 @@
 # frozen_string_literal: true
+
 require_relative 'transaction'
 require_relative 'statement'
 # This class tracks deposits and withdrawals
 class Bank
-
   def initialize(transaction = Transaction.new, statement = Statement.new)
     @transaction = transaction
     @statement = statement
@@ -18,7 +18,6 @@ class Bank
   end
 
   def statement
-    list = @transaction.transactions
-    @statement.print_statement(list)
+    @statement.print_statement(@transaction.transactions)
   end
 end

@@ -1,7 +1,7 @@
-require_relative 'transaction'
+# frozen_string_literal: true
+
 # This class prints out a statement
 class Statement
-
   def print_statement(list)
     puts 'date      || credit || debit || balance'
     i = 0
@@ -10,7 +10,7 @@ class Statement
       i += 1
     end
   end
- 
+
   def credit?(count, list)
     list[count][:transaction] == :deposit ? list[count][:amount] : '  '
   end

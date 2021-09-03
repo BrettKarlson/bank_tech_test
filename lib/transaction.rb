@@ -1,13 +1,14 @@
-# This class provides credit and debit funtionality
-class Transaction
+# frozen_string_literal: true
 
+# This class provides credit and debit functionality
+class Transaction
   attr_reader :balance, :transactions
 
   def initialize(balance = 0)
     @balance = balance
     @transactions = []
   end
-  
+
   def credit(amount)
     @balance += amount.to_f
     @transactions.unshift({ date: Time.new.strftime('%d/%m/%Y'), transaction: :deposit, amount: format('%.2f', amount),
